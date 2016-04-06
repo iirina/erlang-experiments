@@ -1,0 +1,3 @@
+
+Simple TCP RPC server inspired by the example in the book "Erlang and OTP in
+action".
