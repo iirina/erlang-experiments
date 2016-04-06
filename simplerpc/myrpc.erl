@@ -13,7 +13,7 @@ loop() ->
         % Receive message from process Cli.
         {Cli, {apply, Mod, Func, Args}} ->
             % Create new process on node myrpc and call remotely function 'reply'.
-            file:write_file("/tmp/myrpc", io:fwrite("~p: Received message ~p from client\n", [self(), {apply, Mod, Func, Args}])),
+            io:fwrite("~p: Received message ~p from client\n", [self(), {apply, Mod, Func, Args}]),
             spawn(myrpc, reply, [Cli, Mod, Func, Args]),
             loop()
     end.
